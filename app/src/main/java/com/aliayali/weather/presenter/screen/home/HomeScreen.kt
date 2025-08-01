@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,6 +31,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.aliayali.weather.R
 import com.aliayali.weather.presenter.ui.TopBarWithTabs
+import com.aliayali.weather.presenter.ui.WeatherSmallItem
 import com.aliayali.weather.ui.theme.DeepIndigo
 import com.aliayali.weather.ui.theme.Lavender
 import com.aliayali.weather.ui.theme.MidnightBlue
@@ -95,7 +97,7 @@ fun HomeScreen(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp)
+                    .height(350.dp)
                     .background(
                         brush = Brush.verticalGradient(
                             colors = listOf(MidnightBlue, DeepIndigo)
@@ -115,23 +117,31 @@ fun HomeScreen(
 
                 when (selectedTabIndex) {
                     0 -> {
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
 
+                        LazyRow(
+                            modifier = Modifier
+                                .padding(top = 60.dp)
+                                .height(280.dp)
+                        ) {
+                            items(10) {
+                                WeatherSmallItem()
+                            }
                         }
+
                     }
 
                     1 -> {
-                        Column(
-                            modifier = Modifier.fillMaxSize(),
-                            verticalArrangement = Arrangement.Center,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
 
+                        LazyRow(
+                            modifier = Modifier
+                                .padding(top = 60.dp)
+                                .height(280.dp)
+                        ) {
+                            items(10) {
+                                WeatherSmallItem()
+                            }
                         }
+
                     }
                 }
 
