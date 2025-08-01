@@ -4,7 +4,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.zIndex
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -14,7 +13,7 @@ fun CustomBottomSheetSample(
 
     if (showDialog) {
         ModalBottomSheet(
-            modifier = Modifier.zIndex(0f),
+            modifier = Modifier,
             onDismissRequest = { }
         ) {
 

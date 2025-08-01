@@ -11,3 +11,6 @@ val SecondaryDark = Color(0x99EBEBF5)
 val TertiaryDark = Color(0x4DEBEBF5)
 
 val Lavender = Color(0xFFE0D9FF)
+
+val MidnightBlue = Color(0xF22E335A)
+val DeepIndigo = Color(0xF21C1B33)
