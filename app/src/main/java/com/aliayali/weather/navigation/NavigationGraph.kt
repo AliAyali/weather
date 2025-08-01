@@ -18,7 +18,7 @@ fun SetupNavigation(
     NavHost(
         navController = navController,
         startDestination = NavigationScreen.Home.route,
-        modifier = Modifier.padding(padding)
+        modifier = Modifier.padding(bottom = padding.calculateBottomPadding())
     ) {
 
         composable(
