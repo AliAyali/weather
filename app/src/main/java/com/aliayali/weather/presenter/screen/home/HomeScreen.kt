@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -28,12 +27,12 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.aliayali.weather.R
+import com.aliayali.weather.navigation.NavigationScreen
 import com.aliayali.weather.presenter.ui.CustomBottomSheetSample
 import com.aliayali.weather.presenter.ui.TopBarWithTabs
 import com.aliayali.weather.presenter.ui.WeatherSmallItem
@@ -41,7 +40,6 @@ import com.aliayali.weather.ui.theme.DeepIndigo
 import com.aliayali.weather.ui.theme.Lavender
 import com.aliayali.weather.ui.theme.MidnightBlue
 import com.aliayali.weather.ui.theme.PrimaryDark
-import com.aliayali.weather.ui.theme.WeatherOverlay
 
 
 @Composable
@@ -187,7 +185,11 @@ fun HomeScreen(
                 Image(
                     painter = painterResource(R.drawable.left),
                     contentDescription = "left",
-                    modifier = Modifier.size(60.dp)
+                    modifier = Modifier
+                        .size(60.dp)
+                        .clickable {
+                            navController.navigate(NavigationScreen.WeatherCitiesScreen.route)
+                        }
                 )
                 Image(
                     painter = painterResource(R.drawable.right),

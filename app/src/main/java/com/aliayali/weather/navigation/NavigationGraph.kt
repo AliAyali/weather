@@ -8,6 +8,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.aliayali.weather.presenter.screen.home.HomeScreen
+import com.aliayali.weather.presenter.screen.weatherCities.WeatherCitiesScreen
 
 @Composable
 fun SetupNavigation(
@@ -25,6 +26,12 @@ fun SetupNavigation(
             route = NavigationScreen.Home.route
         ) {
             HomeScreen(navController)
+        }
+
+        composable(
+            route = NavigationScreen.WeatherCitiesScreen.route
+        ) {
+            WeatherCitiesScreen()
         }
 
     }
