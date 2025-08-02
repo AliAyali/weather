@@ -17,4 +17,5 @@ val DeepIndigo = Color(0xF21C1B33)
 
 val WeatherOverlay = Color(0xFF48319D)
 val Blue = Color(0xFF40CBD8)
+val DarkPurple = Color(0xF2422E5A)
 

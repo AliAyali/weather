@@ -23,8 +23,7 @@ import com.aliayali.weather.ui.theme.TertiaryDark
 @Composable
 fun TopBarWithTabs(
     selectedTabIndex: Int,
-    onTabSelected: (Int) -> Unit,
-    navController: NavController,
+    onTabSelected: (Int) -> Unit
 ) {
     val tabs = listOf(
         "Hourly Forecast",
