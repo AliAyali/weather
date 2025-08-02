@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -30,10 +31,10 @@ fun CustomBox(
         modifier = Modifier
             .then(
                 if (isFullWidth) Modifier.fillMaxWidth()
-                else Modifier.width(100.dp)
+                else Modifier.width(195.dp)
             )
             .height(220.dp)
-            .padding(20.dp)
+            .padding(10.dp)
             .background(
                 WeatherOverlay,
                 RoundedCornerShape(10.dp)
@@ -45,7 +46,8 @@ fun CustomBox(
             Icon(
                 painter = painterResource(icon),
                 null,
-                tint = Color.Gray
+                tint = Color.Gray,
+                modifier = Modifier.size(25.dp)
             )
             Spacer(Modifier.width(10.dp))
             Text(
