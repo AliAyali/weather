@@ -5,6 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.aliayali.weather.data.local.CityPreferenceManager
 import com.aliayali.weather.data.remote.model.CurrentWeatherResponse
 import com.aliayali.weather.data.remote.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val repository: WeatherRepository,
+    private val cityPreferenceManager: CityPreferenceManager,
     private val apiKey: String,
 ) : ViewModel() {
 
@@ -24,20 +26,26 @@ class HomeViewModel @Inject constructor(
     val isLoading: State<Boolean> = _isLoading
 
     init {
-        getWeather("Montreal")
+        viewModelScope.launch {
+            cityPreferenceManager.selectedCity.collect { city ->
+                city?.let {
+                    getWeather(it)
+                }
+            }
+        }
     }
 
-    fun getWeather(cityName: String) {
+    private fun getWeather(cityName: String) {
         viewModelScope.launch {
             _isLoading.value = true
             try {
                 val result = repository.getCurrentWeather(cityName, apiKey)
                 _currentWeather.value = result
             } catch (e: Exception) {
-                Log.e("RETROFIT", e.message.toString())
+                Log.e("HomeViewModel", "Error fetching weather: ${e.message}")
             }
             _isLoading.value = false
         }
     }
-
 }
+

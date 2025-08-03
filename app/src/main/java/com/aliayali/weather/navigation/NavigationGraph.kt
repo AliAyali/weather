@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.aliayali.weather.presenter.screen.city.CityListScreen
 import com.aliayali.weather.presenter.screen.home.HomeScreen
 import com.aliayali.weather.presenter.screen.weatherCities.WeatherCitiesScreen
 
@@ -33,6 +34,17 @@ fun SetupNavigation(
         ) {
             WeatherCitiesScreen()
         }
+
+        composable(
+            route = NavigationScreen.CityScreen.route
+        ) {
+            CityListScreen(
+                onCitySelected = { city ->
+                    navController.popBackStack()
+                }
+            )
+        }
+
 
     }
 

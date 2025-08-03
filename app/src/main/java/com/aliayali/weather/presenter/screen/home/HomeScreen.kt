@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -72,24 +73,28 @@ fun HomeScreen(
                 Text(
                     text = weather?.name ?: "Loading...",
                     color = PrimaryDark,
-                    fontSize = 30.sp
+                    fontSize = 30.sp,
+                    textAlign = TextAlign.Center
                 )
                 Text(
                     text = weather?.main?.temp?.toInt()?.toString()?.plus("°") ?: "--",
                     color = PrimaryDark,
                     fontSize = 100.sp,
-                    fontWeight = FontWeight.W300
+                    fontWeight = FontWeight.W300,
+                    textAlign = TextAlign.Center
                 )
                 Text(
                     text = weather?.weather?.getOrNull(0)?.description?.replaceFirstChar { it.uppercase() }
-                        ?: "--",
+                        ?: "**",
                     color = Lavender,
-                    fontSize = 20.sp
+                    fontSize = 20.sp,
+                    textAlign = TextAlign.Center
                 )
                 Text(
-                    text = "H:${weather?.main?.temp_max?.toInt() ?: "--"}°   L:${weather?.main?.temp_min?.toInt() ?: "--"}°",
+                    text = "H:${weather?.main?.temp_max?.toInt() ?: "--"}°   L:${weather?.main?.temp_min?.toInt() ?: "**"}°",
                     color = PrimaryDark,
-                    fontSize = 20.sp
+                    fontSize = 20.sp,
+                    textAlign = TextAlign.Center
                 )
                 Image(
                     painter = painterResource(R.drawable.house),
@@ -198,6 +203,9 @@ fun HomeScreen(
                     modifier = Modifier
                         .size(50.dp)
                         .padding(end = 15.dp)
+                        .clickable {
+                            navController.navigate(NavigationScreen.CityScreen.route)
+                        }
                 )
             }
 
