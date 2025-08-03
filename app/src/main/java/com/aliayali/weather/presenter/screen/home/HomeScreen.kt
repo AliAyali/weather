@@ -49,6 +49,7 @@ fun HomeScreen(
 ) {
     var selectedTabIndex by remember { mutableIntStateOf(0) }
     var stateCustomBottomSheet by remember { mutableStateOf(false) }
+    val weather by homeViewModel.currentWeather
 
     Box(modifier = Modifier.fillMaxSize()) {
 
@@ -69,24 +70,24 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Montreal",
+                    text = weather?.name ?: "Loading...",
                     color = PrimaryDark,
                     fontSize = 30.sp
                 )
                 Text(
-                    text = "19°",
+                    text = weather?.main?.temp?.toInt()?.toString()?.plus("°") ?: "--",
                     color = PrimaryDark,
                     fontSize = 100.sp,
                     fontWeight = FontWeight.W300
                 )
                 Text(
-                    text = "Mostly Clear",
+                    text = weather?.weather?.getOrNull(0)?.description?.replaceFirstChar { it.uppercase() }
+                        ?: "--",
                     color = Lavender,
                     fontSize = 20.sp
                 )
-
                 Text(
-                    text = "H:24°   L:18°",
+                    text = "H:${weather?.main?.temp_max?.toInt() ?: "--"}°   L:${weather?.main?.temp_min?.toInt() ?: "--"}°",
                     color = PrimaryDark,
                     fontSize = 20.sp
                 )

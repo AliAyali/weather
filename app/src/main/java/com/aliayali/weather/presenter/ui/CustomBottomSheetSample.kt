@@ -18,7 +18,6 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SliderState
@@ -36,8 +35,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.aliayali.weather.R
-import com.aliayali.weather.ui.theme.DarkPurple
 import com.aliayali.weather.ui.theme.Lavender
+import com.aliayali.weather.ui.theme.MidnightBlue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,9 +69,8 @@ fun CustomBottomSheetSample(
             onDismissRequest = {
                 onDismiss(false)
             },
-            containerColor = DarkPurple
+            containerColor = MidnightBlue
         ) {
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
