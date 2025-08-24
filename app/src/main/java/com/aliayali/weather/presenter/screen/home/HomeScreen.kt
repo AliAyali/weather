@@ -54,6 +54,7 @@ fun HomeScreen(
 
     Box(modifier = Modifier.fillMaxSize()) {
 
+        // image back
         Image(
             painter = painterResource(id = R.drawable.image_back),
             contentDescription = null,
@@ -61,6 +62,7 @@ fun HomeScreen(
             contentScale = ContentScale.Crop
         )
 
+        // top box -> weather
         Box(
             modifier = Modifier
                 .fillMaxSize(),
