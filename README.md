@@ -47,7 +47,6 @@ Make sure the following tools are installed before building the project:
 - **Gson** – JSON parsing  
 - **Coroutines** – Async operations  
 - **Navigation-Compose** – In-app navigation  
-- **Coil** – Image loading for weather icons  
 
 ---
 
