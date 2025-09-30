@@ -11,6 +11,7 @@
 
 WeatherApp is a modern and elegant real-time weather application built using Jetpack Compose and MVVM architecture. It allows users to search and view the current weather of any city with a smooth and responsive UI.
 
+
 ---
 
 ## ✨ Features
